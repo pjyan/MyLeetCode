@@ -1,0 +1,18 @@
+public class Solution {
+    public int searchInsert(int[] nums, int target) {
+        if(target>nums[nums.length-1]) return nums.length;
+        else if(target< nums[0]) return 0;
+        int index = -1;
+        int low = 0;
+        int high = nums.length-1;
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(nums[mid]==target) return mid;
+            else if(nums[mid]>target) high=mid;
+            else {if(low==mid) break;                //If mid can not move anymore just brak it;
+                  else low=mid;
+                 }
+        }
+        return low+1;
+    }
+}
