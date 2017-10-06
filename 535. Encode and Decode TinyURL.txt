@@ -1,0 +1,28 @@
+public class Codec {
+
+    // Encodes a URL to a shortened URL.
+    public String encode(String longUrl) {
+        
+        String a = "http://tinyurl.com/";
+        String[] b = longUrl.split("/");
+        for(int i=0;i<b.length;i++){
+            a+=b[i]+" ";
+        }
+        if(longUrl.charAt(longUrl.length()-1)=='/')  a+=" ";
+        return a;
+    }
+
+    // Decodes a shortened URL to its original URL.
+    public String decode(String shortUrl) {
+
+        String[] b = shortUrl.split("/");
+        String c= b[b.length-1];
+               c =c.substring(0,c.length()-1);
+        String d = c.replaceAll(" ","/");
+        return d;
+    }
+}
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec = new Codec();
+// codec.decode(codec.encode(url));
