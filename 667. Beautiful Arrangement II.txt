@@ -1,0 +1,19 @@
+class Solution {
+    public int[] constructArray(int n, int k) {
+        int b = 1;
+        int c = n;
+        int i = 0;
+        int[] a = new int[n];
+        for(;i<k;i++){
+           if(i%2==0) a[i]=b++;
+           else       a[i]=c--;
+        }
+        
+        if(k%2==1){
+            while(b<=c)   a[i++]=b++;
+        }else{
+            while(b<=c)   a[i++]=c--;
+        }
+        return a;
+    }
+}
