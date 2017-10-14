@@ -1,0 +1,16 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        boolean buy = true;
+        int profit=0;
+        for(int i=0;i<prices.length;i++){
+            if(buy&&i<prices.length-1&&prices[i]<prices[i+1]){
+                profit -=prices[i];
+                buy=false;
+            }else if(!buy&&(i==prices.length-1||prices[i]>prices[i+1])){
+                profit +=prices[i];
+                buy=true;
+            }
+        }
+        return profit;
+    }
+}
