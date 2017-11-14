@@ -1,0 +1,48 @@
+import java.util.ArrayList; 
+import java.util.Scanner;
+
+public class Main {
+
+        public static void main(String[] args) {                        
+            Scanner sc = new Scanner(System.in); 
+           do{
+            int[] data = new int[2];
+
+                data[0] = sc.nextInt();
+                data[1] = sc.nextInt();
+
+            ArrayList<Integer> array = new ArrayList<Integer>(); 
+            for(int i=0;i < data[0];i++){
+                array.add(sc.nextInt());
+            }
+            int time=0;
+            char a;
+            int b,c;
+            while(time < data[1]){
+
+                a = sc.next().charAt(0);
+                b = sc.nextInt();
+                c = sc.nextInt();
+
+                if(a=='Q')
+                {
+                    if(b>c){
+                        int temp = c;
+                        c = b;
+                        b = temp;
+                    }
+                    int max = 0;
+                    for(int i= b-1 ; i<c ; i++){
+                        max = Math.max(max,array.get(i));
+                    }
+                    System.out.println(max);
+                }
+                else if(a=='U'){
+                    array.set(b-1, c);
+                }
+                time++;
+                }
+           }while(sc.hasNext());
+            sc.close();
+        }
+}
