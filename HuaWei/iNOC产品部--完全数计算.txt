@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int a = sc.nextInt();
+            System.out.println(count(a));
+        }
+    }
+    public static int count(int n){
+        if(n<0||n>=500000)  return -1;
+        int count = 0;
+        while(n>0){
+            int sum = -n;
+            int num = n;
+            while(num>0){
+                if(n%num==0){
+                    sum+=num;
+                }
+                num--;
+            }
+            if(sum==n)  count++;
+            n--;
+        }
+        return count;
+    }
+}

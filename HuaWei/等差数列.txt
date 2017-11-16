@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            if(sc.hasNextInt()){
+                int a  = sc.nextInt();
+                if(a>0){
+                    int sum = (2+2+3*(a-1))*a/2;
+                    System.out.println(sum);
+                }else{
+                    System.out.println(-1);
+                }
+            }else{
+                System.out.println(-1);
+            }
+        }
+    }
+}
