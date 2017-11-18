@@ -1,0 +1,37 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+       Scanner sc = new Scanner(System.in);
+        String[] len1 = {"reset"};
+        String[] len2 = {"reset","board","board","reboot","backplane"};
+        String[] len3 = {"board","add","delet","backplane","abort"};
+        while(sc.hasNext()){
+            String st = sc.nextLine();
+            String[] sa = st.split(" ");
+            if(sa.length==1){
+                if(len1[0].contains(sa[0])){
+                    System.out.println("reset what");
+                }else{
+                     System.out.println("unkown command");
+                }
+            }else if(sa.length==2){
+                if(len2[0].contains(sa[0])&&len3[0].contains(sa[1])){
+                    System.out.println("board fault");
+                }else if(len2[1].contains(sa[0])&&len3[1].contains(sa[1])){
+                    System.out.println("where to add");
+                }else if(len2[2].contains(sa[0])&&len3[2].contains(sa[1])){
+                    System.out.println("no board at all");
+                }else if(len2[3].contains(sa[0])&&len3[3].contains(sa[1])){
+                    System.out.println("impossible");
+                }else if(len2[4].contains(sa[0])&&len3[4].contains(sa[1])){
+                    System.out.println("install first");
+                }else{
+                    System.out.println("unkown command");
+                }
+            }else{
+                System.out.println("unkown command"); 
+            }
+        }
+        sc.close();
+    }
+}
