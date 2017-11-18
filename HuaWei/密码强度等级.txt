@@ -1,0 +1,61 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+        char[] ch = sc.nextLine().toCharArray();
+        int sec = 0;
+        if(ch.length<=4){
+            sec+=5;
+        }else if(ch.length>=5&&ch.length<=7){
+            sec+=10;
+        }else if(ch.length>=8){
+            sec+=25;
+        }
+        int alpNum = 0;
+        int numNum = 0;
+        int charNum = 0;
+        boolean upper = false;
+        boolean lower = false;
+        for(char i : ch){
+            if(Character.isDigit(i)) numNum++;
+            else if(Character.isLetter(i)){
+                alpNum++;
+                if(!upper&&Character.isUpperCase(i))      upper = true;
+                else if(!lower&&Character.isLowerCase(i)) lower = true;
+            }else{
+                charNum++;
+            }
+        }
+        if(alpNum>0){
+            if(upper&&lower) sec +=20;
+            else sec+=10;
+        }
+        if(numNum==1) sec+=10;
+        else if(numNum>1) sec+=20;
+        
+        if(charNum==1) sec+=10;
+        else if(charNum>1) sec+=25;
+        
+        if(upper&&lower&&numNum>0&&charNum>0) sec+=5;
+        else if(alpNum>0&&numNum>0&&charNum>0) sec+=3;
+        else if(alpNum>0&&numNum>0)  sec+=2;
+        
+  
+                if(sec>=90)
+                System.out.println("VERY_SECURE");
+                else if( sec>=80)
+                System.out.println("SECURE");
+                else if( sec>=70)
+                System.out.println("VERY_STRONG");
+                else if( sec>=60)
+                System.out.println("STRONG");
+                else if( sec>=50)
+                System.out.println("AVERAGE");
+                else if(sec>=25)
+                System.out.println("WEAK");
+                else if(sec>=0)
+                System.out.println("VERY_WEAK");
+        }
+    }
+}
