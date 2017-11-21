@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc  = new Scanner(System.in);
+        while(sc.hasNext()){
+            char[] ch = sc.next().toCharArray();
+            int a = sc.nextInt();
+            String b = "";
+            for(char i:ch){
+                if(a>1){
+                    if(Character.isDigit(i)||Character.isLetter(i)){
+                        b+=i;
+                        a--;
+                    }else{
+                        b+=i;
+                        a = a-2;
+                    }
+                }else if(a==1){
+                    if(Character.isDigit(i)||Character.isLetter(i)){
+                        b+=i;
+                        a--;
+                       
+                    } 
+                    break;
+                }else{
+                    break;
+                }
+            }
+            System.out.println(b);
+        }
+    }
+}

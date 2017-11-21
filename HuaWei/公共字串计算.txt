@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+           String a = sc.next();
+           String b = sc.next(); 
+           int max =0;
+           for(int i=0; i<a.length();i++){
+               String c =""+a.charAt(i);
+               int temp = 0;
+               int j =i;
+               while(b.contains(c)){
+                   temp++;
+                   max = Math.max(temp,max);
+                   if(j<a.length()-1){
+                       j++;
+                       c+=a.charAt(j);
+                   }else{
+                       break;
+                   }
+               }
+               
+               temp=0;
+           }
+            System.out.println(max);
+        }
+    }
+}
