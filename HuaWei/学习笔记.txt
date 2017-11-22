@@ -28,3 +28,6 @@
 8.Scanner
   hasNext（）检测有没有输入， 但光标一直在输入之前
   nextInt（）获取输入，并将光标移植输入之后。 如不用nextInt（），则hasNext（）移植为True
+
+9. 整数Char相加，其实加的是asci码
+   int a = '4'+'8';  结果108

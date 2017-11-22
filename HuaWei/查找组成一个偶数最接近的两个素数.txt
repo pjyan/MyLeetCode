@@ -1,0 +1,37 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int a = sc.nextInt();
+            int b = a/2;
+            int c = a/2;
+            boolean su1 = true;
+            boolean su2 = true;
+            while(true){
+                su1= true;
+                su2= true;
+                
+               for(int i=2 ; i<b/2+1 ;i++){
+                   if(b%i==0){
+                       su1 = false;
+                       break;
+                   }
+               }
+               if(su1){
+                   for(int i=2 ;i<c/2+1 ;i++){
+                    if(c%i==0){
+                       su2 = false;
+                       break;
+                   }
+                 }
+              }
+                if(su1&&su2) break;
+                b = b-1;
+                c = c+1;
+            }
+            System.out.println(b);
+            System.out.println(c);
+        }
+    }
+}
