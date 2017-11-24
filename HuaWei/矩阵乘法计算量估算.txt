@@ -1,0 +1,44 @@
+import java.util.Scanner;
+import java.util.Stack;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        while(sc.hasNext()){
+            int num  = sc.nextInt();
+            int[][] mat = new int[num][2];
+            int sum = 0;
+            Stack<Integer> s = new Stack<Integer>();
+            for(int i=0 ; i<num ; i++){
+                mat[i][0] = sc.nextInt();
+                mat[i][1] = sc.nextInt();
+            }
+            String st = sc.next();
+            int index = 0;
+            for(int i =0 ; i<st.length(); i++){
+                
+                if(Character.isLetter(st.charAt(i))){
+                    s.push(mat[index][0]);
+                    s.push(mat[index++][1]);
+                }else if(st.charAt(i)==')'&&s.size()!=2){
+                    int ny = s.pop();
+                    int nx = s.pop();
+                    int oy = s.pop();
+                    int ox = s.pop();
+                    sum+= ox*ny*oy;
+                    s.push(ox);
+                    s.push(ny);
+                }
+            }
+            while(s.size()!=2){
+                    int ny = s.pop();
+                    int nx = s.pop();
+                    int oy = s.pop();
+                    int ox = s.pop();
+                    sum+= ox*ny*oy;
+                    s.push(ox);
+                    s.push(ny);
+            }
+            System.out.println(sum);
+        }
+    }
+}

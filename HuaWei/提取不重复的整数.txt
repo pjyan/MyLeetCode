@@ -1,0 +1,19 @@
+import java.util.Scanner;
+import java.util.HashSet;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            char[] ch = sc.nextLine().toCharArray();
+            String st ="";
+            HashSet<Character> hs = new HashSet<Character>();
+            for(int i =ch.length-1 ; i>=0 ;i--){
+                if(!hs.contains(ch[i])) {
+                    hs.add(ch[i]);
+                    st+=ch[i];
+                }
+            }
+            System.out.println(st);
+        }
+    }
+}

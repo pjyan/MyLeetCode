@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            char[] ch =sc.nextLine().toCharArray();
+            String st = "";
+            for(char i:ch){
+                if(Character.isLowerCase(i)){
+                     if(i>='a'&&i<='c')st+='2';
+                else if(i>='d'&&i<='f')st+='3';
+                else if(i>='g'&&i<='i')st+='4';
+                else if(i>='j'&&i<='l')st+='5';
+                else if(i>='m'&&i<='o')st+='6';
+                else if(i>='p'&&i<='s')st+='7';
+                else if(i>='t'&&i<='v')st+='8';
+                else if(i>='w'&&i<='z')st+='9';
+                }else if(Character.isUpperCase(i)){
+                    char newC = Character.toLowerCase(i);
+                    if(newC=='z') st+='a';
+                    else st+=(char)(newC+1);
+                }else{
+                    st+=i;
+                }
+            }
+            System.out.println(st);
+        }
+    }
+}
