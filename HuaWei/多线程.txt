@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args)throws Exception{
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int time = sc.nextInt();
+            while(time>0){
+                Thread t1 = new Thread(new pri(),"A");
+                t1.start();
+                Thread.sleep(100);
+                Thread t2 = new Thread(new pri(),"B");
+                t2.start();
+                Thread.sleep(100);
+                Thread t3 = new Thread(new pri(),"C");
+                t3.start();
+                Thread.sleep(100);
+                Thread t4 = new Thread(new pri(),"D");
+                t4.start();
+                Thread.sleep(100);
+                time--;
+      }
+    }
+  }
+}
+class pri implements Runnable{
+      Object obj = new Object();
+      public void run(){
+        synchronized(obj){
+           System.out.print(Thread.currentThread().getName()); 
+        }
+    }
+}

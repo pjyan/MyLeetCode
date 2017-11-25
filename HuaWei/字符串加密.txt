@@ -1,0 +1,24 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            ArrayList<Character> al = new ArrayList<Character>();
+            char[] key = sc.nextLine().toCharArray();
+            char[] data = sc.nextLine().toCharArray();
+           for(char i:key){
+               if(!al.contains(i)) al.add(i);
+           }
+            for(int i=0; i<=26 ;i++){
+                char a = (char)('a'+i);
+                if(!al.contains(a)) al.add(a);
+            }
+            String st ="";
+            for(char i:data){
+                st+=al.get(i-'a');
+            }
+            System.out.println(st);
+        }
+    }
+}

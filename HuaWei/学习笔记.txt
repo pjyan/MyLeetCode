@@ -43,3 +43,60 @@
    [\\\\w] : 任意数字，英文，下划线
    [\\\\w]{1} :一个任意数字，英文，下划线
    [\\\\w]{1，} :至少1个任意数字，英文，下划线
+
+12.final, finally, finalize的区别
+final:最终的意思，可以修饰类，方法和变量。
+	它修饰的类，不能被继承
+	它修饰的方法，不能被重写
+	它修饰的变量，不能被改变
+finally:是异常处理的一部分，用于释放资源的。它控制的代码永远会执行。
+特殊情况：在执行到finally之前，JVM退出了。
+finalize:是Object类的一个方法，用于垃圾回收。
+
+13   Math.round 四舍五入
+     Math.ceil  顶
+     Math.floor 底
+
+14.short s1 = 1; s1 = s1 + 1;   s1会自动提升为int类型，结果赋值给short类型，所以报错。
+   short s1 = 1; s1 += 1;       +=这种赋值运算符隐含了强制类型转换。
+
+15.try {}里有一个return语句，try后的finally {}里的code会在return之前运行
+
+16. switch
+    byte  可以
+    long  不可以
+    String JDK7之后可以
+
+17.编写.JAVA文件，编译得到. Class字节码文件，交给JVM运行
+
+18.方法可以和class同名，此时和构造方法唯一的区别就是，构造方法没有返回值
+
+19.抽象方法没有body部分，也没有大括号{ }
+   abstract void eat();      //定义抽象方法
+
+20.数组是对象
+
+21.interface 是public的， 加不加都是public
+
+22.面向对象特点
+    抽象
+    继承
+    封装
+    多态
+
+23.clone()  返回Object对象， 创建新的引用。
+   Person p = new Person(23, "zhang");  
+   Person p1 = (Person) p.clone();  
+   p和p1指向不同的对象
+
+24.重写Overriding是父类与子类之间多态性的一种表现，
+   重载Overloading是一个类中多态性的一种表现。
+
+25.java.lang.String类是final类型的，因此不可以继承这个类、不能修改这个类。
+
+26.String s = new String("xyz");创建了2个String Object? 
+    一个在常量池，另一个在堆里。
+
+27.静态方法不可以被重写
+   
+28.static 方法里只能调用其他的static方法
