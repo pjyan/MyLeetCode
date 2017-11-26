@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            char[] ch1 = sc.nextLine().toCharArray();
+            char[] ch2 = sc.nextLine().toCharArray();
+            int len1 = ch1.length;
+            int len2 = ch2.length;
+            int[][] ans = new int[len1+1][len2+1];
+            for(int i=0 ;i<=len1 ;i++) ans[i][0] =i;
+            for(int i=1 ;i<=len2 ;i++) ans[0][i] =i;
+            int ins = 1;
+            int del = 1;
+            int rep = 1;
+            for(int i=1; i<=len1 ;i++){
+                for(int j=1 ;j<=len2 ;j++){
+                    int cost1 = ans[i-1][j]+del;
+                    int cost2 = ans[i][j-1]+ins;
+                    int cost3 = 0;
+                    if(ch1[i-1]==ch2[j-1]){
+                        cost3 = ans[i-1][j-1];
+                    }else{
+                        cost3 = ans[i-1][j-1]+rep;
+                    }
+                    ans[i][j] = Math.min(cost1,cost2);
+                    ans[i][j] = Math.min(ans[i][j],cost3);
+                }
+            }
+            System.out.println(ans[len1][len2]);
+        }
+    }
+}

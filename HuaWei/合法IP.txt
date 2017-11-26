@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            String ans = "YES";
+            String[] st = sc.nextLine().split("\\.");
+            if(st.length!=4) ans="NO";
+            else{
+                for(String i : st){
+                    if(i.matches("[0-9]{1,}")&&Integer.parseInt(i)>=0&&Integer.parseInt(i)<=255){
+                        continue;
+                    }else{
+                        ans = "NO";
+                        break;
+                    }
+                   }
+                }
+            System.out.println(ans);
+        }
+    }
+}
