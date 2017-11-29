@@ -100,3 +100,10 @@ finalize:是Object类的一个方法，用于垃圾回收。
 27.静态方法不可以被重写
    
 28.static 方法里只能调用其他的static方法
+
+29.遍历TreeMap
+  Map map<Integer>=new TreeMap<Integer>();//创建集合对象
+  Set<Integer> ir=map.keySet()   //获取hashMap的键值
+  for(int key:set){
+        System.out.println("键为"+key+"所对应的值为"+map.get(key));
+   }

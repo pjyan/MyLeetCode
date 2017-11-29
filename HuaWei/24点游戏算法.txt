@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int[] num = new int[4];
+            boolean[] used = new boolean[4];
+            for(int i=0;i<4 ;i++){
+                num[i]=sc.nextInt();
+                used[i] = false;
+            } 
+            System.out.println(check(num,used,0.0));
+        }
+    }
+    public static boolean check(int[] num,boolean[] used,double res){
+        for(int i=0 ;i<4 ;i++){
+            if(used[i]==false){
+                used[i]=true;
+                if(check(num,used,res+num[i])||check(num,used,res-num[i])||check(num,used,res*num[i])||check(num,used,res/num[i])){
+                    return true;
+                } 
+                used[i]=false;
+            }
+        }
+        if(res==24){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
