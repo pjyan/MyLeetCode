@@ -107,3 +107,34 @@ finalize:是Object类的一个方法，用于垃圾回收。
   for(int key:set){
         System.out.println("键为"+key+"所对应的值为"+map.get(key));
    }
+
+30.Char String 相互转换
+   String转char
+	1. 使用String.charAt(index)（返回值为char） 
+	2. 使用String.toCharArray()（返回值为char[]）
+   char转String
+	1. String s = String.valueOf('c'); //效率最高的方法
+	2. String s = String.valueOf(new char[]{'c'}); //将一个char数组转换成String
+	3. String s = Character.toString('c');
+	4. String s = new Character('c').toString();
+	5. String s = "" + 'c';		// 虽然这个方法很简单，但这是效率最低的方法
+	6. String s = new String(new char[]{'c'});
+
+31.运行时异常与编译异常（异常：Exception）
+   异常表示程序运行过程中可能出现的非正常状态，运行时异常表示虚拟机的通常操作中可能遇到的异常，
+   是一种常见运行错误。java编译器要求方法必须声明抛出可能发生的非运行时异常，
+   但是并不要求必须声明抛出未被捕获的运行时异常。
+
+   编译期异常： 必须要处理的，否则编译不通过
+   运行期异常： 可以不处理，也可以处理
+
+32.throws,throw,try,catch,finally
+   在Java中，每个异常都是一个对象，它是Throwable类或其它子类的实例。
+   一般情况下是用try来执行一段程序，如果出现异常，系统会抛出（throws）一个异常，
+   这时候你可以通过它的类型来捕捉（catch）它，或最后（finally）由缺省处理器来处理。
+   
+   throw：在方法体内,后面跟的是异常对象名,并且只能是一个
+	  throw抛出的是一个异常对象，说明这里肯定有一个异常产生了。
+   throws：在方法声明上,后面跟的是异常的类名,可以是多个
+           throws是声明方法有异常，是一种可能性，这个异常并不一定会产生。
+   Finally：用于释放资源，它的代码永远会执行。。

@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            String st1 = sc.nextLine();
+            String st2 = sc.nextLine();
+            int len1 = st1.length()/8;
+            int len2 = st2.length()/8;
+            for(int i=0 ; i<len1 ;i++){
+                System.out.println(st1.substring(i*8,(i+1)*8));
+            }
+            if(st1.length()>len1*8){
+                String st = st1.substring(len1*8,st1.length());
+                for(int i =0;i<8-st1.length()+len1*8 ;i++){
+                    st+='0';
+                }
+                System.out.println(st);
+            }
+           for(int i=0 ; i<len2 ;i++){
+                System.out.println(st2.substring(i*8,(i+1)*8));
+            }
+            if(st2.length()>len2*8){
+                String st = st2.substring(len2*8,st2.length());
+                for(int i =0;i<8-st2.length()+len2*8 ;i++){
+                    st+='0';
+                }
+                System.out.println(st);
+            }
+        }
+    }
+}

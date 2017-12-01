@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        int rat = 0;
+        int index = -1;
+        int length = 0;
+        while(sc.hasNext()){
+            String st = sc.nextLine();
+            length = sc.nextInt();
+            for(int i=0 ;i<=st.length()-length;i++){
+                char[] ch = st.substring(i,i+length).toCharArray();
+                int temp =0;
+                for(char j:ch){
+                    if(j=='C'||j=='G'){
+                        temp++;
+                    }
+                }
+                if(temp>rat){
+                    rat = temp;
+                    index = i;
+                }
+            }
+            System.out.println(st.substring(index,index+length));
+        }
+    }
+}

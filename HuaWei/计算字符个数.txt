@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            String st1 = sc.nextLine().toUpperCase();
+            String st2 = sc.nextLine().toUpperCase();
+            int count = 0;
+            for(int i=0;i<st1.length();i++){
+                if(String.valueOf(st1.charAt(i)).equals(st2)) count++;
+            }
+            System.out.println(count);
+        }
+    }
+}
