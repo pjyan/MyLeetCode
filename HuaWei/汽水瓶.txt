@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int remain = sc.nextInt();
+            int drink = 0;
+            while(remain>1){
+                if(remain>3){
+                    int temp = remain/3;
+                    drink += temp;
+                    remain = remain%3+temp;
+                }else{
+                    drink++;
+                    break;
+                }
+            }
+            System.out.println(drink);
+        }
+    }
+}
