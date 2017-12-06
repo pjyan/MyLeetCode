@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            char[] ch = sc.nextLine().toCharArray();
+            int[] time = new int[26];
+            for(char i:ch ){
+                  time[i-'a']++; 
+            }
+            int mi = Integer.MAX_VALUE;
+            for(int i:time){
+                if(i!=0) mi = Math.min(mi,i);
+            }
+            for(char i :ch){
+                if(time[i-'a']!=0&&time[i-'a']!=mi) System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+}

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            char[] ch = sc.nextLine().toCharArray();
+            StringBuffer sb = new StringBuffer();
+            for(int i=0 ; i<26 ;i++){
+                char a = (char)(i+'A');
+                for(int j=0 ; j<ch.length ;j++){
+                    if(ch[j]==a||ch[j]==(char)(32+a)){
+                        sb.append(ch[j]);
+                    }
+                }
+            }
+            for(int i=0 ;i<ch.length ;i++){
+                if(!Character.isLetter(ch[i])){
+                    sb.insert(i,ch[i]);
+                }
+            }
+            System.out.println(sb.toString());
+        }
+    }
+}
