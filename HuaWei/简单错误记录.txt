@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.util.LinkedHashMap;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        LinkedHashMap<String,Integer> tm = new LinkedHashMap<String,Integer>();
+        while(sc.hasNext()){
+            String[] st = sc.next().split("\\\\");
+            int line = sc.nextInt();
+            String name = st[st.length-1];
+            if(name.length()>16){
+                name  = name.substring(name.length()-16,name.length());
+            }
+            String all = name+" "+line;
+            if(tm.containsKey(all)){
+                tm.put(all,tm.get(all)+1);
+            }else{
+                tm.put(all,1);
+            }
+        }
+        int count = 0;
+        
+        for(String i: tm.keySet() ){
+            count++;
+            if(count>(tm.size()-8)){
+                System.out.println(i+" "+tm.get(i));
+            }
+        }
+    }
+}
